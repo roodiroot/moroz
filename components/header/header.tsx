@@ -41,7 +41,7 @@ const Header = () => {
             asChild
             className="rounded-full px-7 py-4 font-bold text-xl h-[56px]"
           >
-            <a href="tel:89999999999">+7 999 999 99 99</a>
+            <a href="tel:+79271881532">+7 (927) 188-15-32</a>
           </Button>
         </div>
       </nav>

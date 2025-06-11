@@ -15,7 +15,9 @@ export const sendMessagePopup = async (
 ) => {
   try {
     await sendNotification(
-      `<b>SITE.RU</b> Заявка от ${value?.name} ${value?.phone}. ${data || ""}`
+      `<b>mordovklimat.ru</b> Заявка от ${value?.name} ${value?.phone}. ${
+        data || ""
+      }`
     );
     return { succsess: "Спасибо за заявку, ожидайте звонка!" };
   } catch {
@@ -29,7 +31,7 @@ export const sendMessagePropmpt = async (
 ) => {
   try {
     await sendNotification(
-      `<b>SITE.RU</b> Быстрая заявка ${value?.phone}. ${data}`
+      `<b>mordovklimat.ru</b> Быстрая заявка ${value?.phone}. ${data}`
     );
     return { succsess: "Спасибо за заявку, ожидайте звонка!" };
   } catch {
@@ -42,7 +44,7 @@ export const sendMessageFedback = async (
 ) => {
   try {
     await sendNotification(
-      `<b>SITE.RU</b> Обратная связь от ${value?.name}. ${
+      `<b>mordovklimat.ru</b> Обратная связь от ${value?.name}. ${
         value?.email
       }. <b>Сообщение от пользователя:</b> <i>${value?.message}</i> ${
         data || ""

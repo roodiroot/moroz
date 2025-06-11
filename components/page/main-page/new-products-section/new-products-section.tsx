@@ -5,10 +5,15 @@ import GeneralTitle from "@/components/general/title";
 import ProductsSaleCarousel from "./products-carousel";
 
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { ConditionerItem } from "@/data/types-api";
 
-const products = new Array(8).fill("");
+interface NewProductsSectionProps {
+  products?: ConditionerItem[];
+}
 
-const NewProductsSection = () => {
+const NewProductsSection: React.FC<NewProductsSectionProps> = ({
+  products,
+}) => {
   const isDesctop = useMediaQuery("(min-width: 768px)");
 
   return (
@@ -16,8 +21,18 @@ const NewProductsSection = () => {
       <GeneralTitle subtitle="Товары со скидкой" />
       {isDesctop ? (
         <div className="mt-9 md:mt-11 grid  gap-x-7 gap-y-14 md:grid-cols-3 lg:grid-cols-4">
-          {products.map((i, index) => (
-            <ProductItem key={index} />
+          {products?.map((i, index) => (
+            <ProductItem
+              key={index}
+              name={i.name}
+              brand={i?.brand?.name}
+              slug={i.slug}
+              square={i.square}
+              compressor={i.compressor}
+              wifi={i.wifi}
+              price={i.price}
+              image={i.images && i.images[0]?.url}
+            />
           ))}
         </div>
       ) : (

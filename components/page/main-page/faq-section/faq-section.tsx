@@ -1,38 +1,11 @@
 import GeneralTitle from "@/components/general/title";
+import { FAQItem } from "@/data/types-api";
 
-const FAQData = [
-  {
-    question: "Сколько стоит установка кондиционера?",
-    answer:
-      "Цена зависит от модели и сложности монтажа. Базовая установка — от 7 000 ₽. Точную стоимость скажем после короткой консультации.",
-  },
-  {
-    question: "Как быстро вы приедете?",
-    answer:
-      "В большинстве случаев — в день обращения или на следующий. Работаем без выходных.",
-  },
-  {
-    question: "Есть ли гарантия на выполненные работы?",
-    answer:
-      "Да, мы предоставляем гарантию на все выполненные работы. Если возникнут проблемы, мы их устраним бесплатно.",
-  },
-  {
-    question: "Обслуживаете ли вы кондиционеры, которые не устанавливали?",
-    answer:
-      "Kонечно. Чистим и ремонтируем любые модели, даже если их ставила другая компания.",
-  },
-  {
-    question: "Можно ли купить кондиционер у вас и сразу заказать установку?",
-    answer: "Да! Мы подберём модель, привезём её и установим — всё «под ключ».",
-  },
-  {
-    question: "Сколько длится установка?",
-    answer:
-      "Обычно 2–3 часа. Если работы нестандартные (например, бурение бетонной стены) — может занять чуть больше времени.",
-  },
-];
+interface FAQSectionProps {
+  faqs?: FAQItem[];
+}
 
-const FAQSection = () => {
+const FAQSection: React.FC<FAQSectionProps> = ({ faqs }) => {
   return (
     <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
       <GeneralTitle
@@ -42,7 +15,7 @@ const FAQSection = () => {
       />
       <div className="mt-16">
         <div className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-10">
-          {FAQData.map((item, index) => (
+          {faqs?.map((item, index) => (
             <div key={index}>
               <dt>
                 <h3 className="text-base font-bold">{item.question}</h3>

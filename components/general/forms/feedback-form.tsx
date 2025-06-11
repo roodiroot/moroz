@@ -21,6 +21,7 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { DialogFooter } from "@/components/ui/dialog";
 import useFeedbackForm from "@/hooks/use-feedback-form";
+import { sendMessagePopup } from "@/actions/sender";
 
 const FeedbackForm = () => {
   const { onClose } = useFeedbackForm();
@@ -34,11 +35,15 @@ const FeedbackForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formProfileSchema>) {
-    console.log(values);
-    form.reset();
-    onClose();
-    toast.success("Заявка успешно отправлена");
+  async function onSubmit(values: z.infer<typeof formProfileSchema>) {
+    const res = await sendMessagePopup(values);
+    if (res.succsess) {
+      form.reset();
+      toast.success("Заявка успешно отправлена");
+      onClose();
+    } else {
+      toast.error("Ошибка отправки формы, попробуйте позже");
+    }
   }
 
   return (

@@ -20,6 +20,7 @@ import {
 import InputPhoneMask from "@/components/ui/input-phone-mask";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { sendMessagePopup } from "@/actions/sender";
 
 const HeroForm = () => {
   const form = useForm<z.infer<typeof formProfileSchema>>({
@@ -31,10 +32,14 @@ const HeroForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formProfileSchema>) {
-    console.log(values);
-    form.reset();
-    toast.success("Заявка успешно отправлена");
+  async function onSubmit(values: z.infer<typeof formProfileSchema>) {
+    const res = await sendMessagePopup(values);
+    if (res.succsess) {
+      form.reset();
+      toast.success("Заявка успешно отправлена");
+    } else {
+      toast.error("Ошибка отправки формы, попробуйте позже");
+    }
   }
 
   return (
@@ -137,7 +142,11 @@ const HeroForm = () => {
               </FormControl>
               <label className="text-white text-sm">
                 Я согласен на обработку{" "}
-                <a target="_blank" className="text-primary font-bold" href="">
+                <a
+                  target="_blank"
+                  className="text-primary font-bold"
+                  href="/privacy-policy"
+                >
                   персональных данных
                 </a>
               </label>

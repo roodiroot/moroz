@@ -1,7 +1,12 @@
 import GeneralTitle from "@/components/general/title";
 import { Button } from "@/components/ui/button";
+import { ServiceItem } from "@/data/types-api";
+import PriceRow from "./price-row";
 
-const PriceSection = () => {
+interface PriceSectionProps {
+  prices?: ServiceItem[];
+}
+const PriceSection: React.FC<PriceSectionProps> = ({ prices }) => {
   return (
     <>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-32 md:pt-44">
@@ -29,86 +34,14 @@ const PriceSection = () => {
               </tr>
             </thead>
             <tbody className=" divide-y divide-gray-200">
-              <tr className="bg-white">
-                <td className="w-full max-w-0 py-4 pr-3 pl-6 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none text-balance">
-                  Установка. Магистраль до 4м*
-                  <dl className="font-normal md:hidden">
-                    <dt className="sr-only">Модели кондиционеров</dt>
-                    <dd className="mt-1 text-ellipsis whitespace-nowrap overflow-hidden text-gray-600">
-                      07-09 BTU или до 26м²
-                    </dd>
-                  </dl>
-                </td>
-                <td className="hidden px-3 py-4 text-sm md:table-cell">
-                  07-09 BTU или до 26м²
-                </td>
-                <td className="px-3 py-4 text-sm">8&nbsp;500,00&nbsp;₽</td>
-                <td className="py-4 pl-3 pr-4 text-right text-smfont-medium flex justify-end">
-                  <button className="text-primary hidden sm:block">
-                    Подробнее
-                  </button>
-                </td>
-              </tr>
-              <tr className="bg-white">
-                <td className="w-full max-w-0 py-4 pr-3 pl-6 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none text-balance">
-                  Установка. Магистраль до 4м*
-                  <dl className="font-normal md:hidden">
-                    <dt className="sr-only">Модели кондиционеров</dt>
-                    <dd className="mt-1 text-ellipsis whitespace-nowrap overflow-hidden text-gray-600">
-                      07-09 BTU или до 26м²
-                    </dd>
-                  </dl>
-                </td>
-                <td className="hidden px-3 py-4 text-sm md:table-cell">
-                  07-09 BTU или до 26м²
-                </td>
-                <td className="px-3 py-4 text-sm">8&nbsp;500,00&nbsp;₽</td>
-                <td className="py-4 pl-3 pr-4 text-right text-smfont-medium flex justify-end">
-                  <button className="text-primary hidden sm:block">
-                    Подробнее
-                  </button>
-                </td>
-              </tr>
-              <tr className="bg-white">
-                <td className="w-full max-w-0 py-4 pr-3 pl-6 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none text-balance">
-                  Установка. Магистраль до 4м*
-                  <dl className="font-normal md:hidden">
-                    <dt className="sr-only">Модели кондиционеров</dt>
-                    <dd className="mt-1 text-ellipsis whitespace-nowrap overflow-hidden text-gray-600">
-                      07-09 BTU или до 26м²
-                    </dd>
-                  </dl>
-                </td>
-                <td className="hidden px-3 py-4 text-sm md:table-cell">
-                  07-09 BTU или до 26м²
-                </td>
-                <td className="px-3 py-4 text-sm">8&nbsp;500,00&nbsp;₽</td>
-                <td className="py-4 pl-3 pr-4 text-right text-smfont-medium flex justify-end">
-                  <button className="text-primary hidden sm:block">
-                    Подробнее
-                  </button>
-                </td>
-              </tr>
-              <tr className="bg-white">
-                <td className="w-full max-w-0 py-4 pr-3 pl-6 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none text-balance">
-                  Установка. Магистраль до 4м*
-                  <dl className="font-normal md:hidden">
-                    <dt className="sr-only">Модели кондиционеров</dt>
-                    <dd className="mt-1 text-ellipsis whitespace-nowrap overflow-hidden text-gray-600">
-                      07-09 BTU или до 26м²
-                    </dd>
-                  </dl>
-                </td>
-                <td className="hidden px-3 py-4 text-sm md:table-cell">
-                  07-09 BTU или до 26м²
-                </td>
-                <td className="px-3 py-4 text-sm">8&nbsp;500,00&nbsp;₽</td>
-                <td className="py-4 pl-3 pr-4 text-right text-smfont-medium flex justify-end">
-                  <button className="text-primary hidden sm:block">
-                    Подробнее
-                  </button>
-                </td>
-              </tr>
+              {prices?.map((item) => (
+                <PriceRow
+                  key={item.documentId}
+                  service={item.service}
+                  model_conditionair={item.model_conditionair}
+                  price={item.price}
+                />
+              ))}
             </tbody>
           </table>
         </div>

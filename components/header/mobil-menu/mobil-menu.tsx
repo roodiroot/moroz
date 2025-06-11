@@ -1,13 +1,14 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-
-import { usePathname, useRouter } from "next/navigation";
-import { useDisableBodyScroll } from "@/hooks/use-disable-body-scroll";
 import { cn } from "@/lib/utils";
 import { useEffect } from "react";
-import useMobilMenu from "@/hooks/use-mobil-menu";
+import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { usePathname, useRouter } from "next/navigation";
+import { useDisableBodyScroll } from "@/hooks/use-disable-body-scroll";
+
+import useMobilMenu from "@/hooks/use-mobil-menu";
+import { menu } from "@/routs";
 
 interface MenuMobilProps extends React.HtmlHTMLAttributes<HTMLElement> {}
 
@@ -46,64 +47,48 @@ const MenuMobil: React.FC<MenuMobilProps> = ({ className }) => {
               <div className="w-full h-full flex flex-col">
                 <div className="flex-1">
                   <div className="flex flex-col gap-6 mt-4 items-start">
-                    <button
-                      onClick={() => handleClick("/")}
-                      className={cn(
-                        "text-lg font-bold text-primary hover:text-primary/80  text-start",
-                        className
-                      )}
-                    >
-                      Главная
-                    </button>
-                    <button
-                      onClick={() => handleClick("/")}
-                      className={cn(
-                        "text-lg font-bold text-primary hover:text-primary/80  text-start",
-                        className
-                      )}
-                    >
-                      О нас
-                    </button>
+                    {/* Основное меню */}
+                    {menu.main.map((item) => (
+                      <button
+                        onClick={() => handleClick(item.href)}
+                        key={item.name}
+                        className={cn(
+                          "text-lg font-bold text-primary hover:text-primary/80  text-start",
+                          className
+                        )}
+                      >
+                        {item.name}
+                      </button>
+                    ))}
 
-                    <button
-                      onClick={() => handleClick("/")}
-                      className={cn(
-                        "text-lg font-bold text-primary hover:text-primary/80  text-start",
-                        className
-                      )}
-                    >
-                      Контакты
-                    </button>
-                    <button
-                      onClick={() => handleClick("/")}
-                      className={cn(
-                        "text-lg font-bold text-primary hover:text-primary/80  text-start",
-                        className
-                      )}
-                    >
-                      Политика конфиденциальности
-                    </button>
-                    <button
-                      onClick={() => handleClick("/")}
-                      className={cn(
-                        "text-lg font-bold text-primary hover:text-primary/80 text-start",
-                        className
-                      )}
-                    >
-                      Согласие на обработку персональных данных
-                    </button>
+                    {/* Документация */}
+                    {menu.docs.map((item) => (
+                      <button
+                        onClick={() => handleClick(item.href)}
+                        key={item.name}
+                        className={cn(
+                          "text-lg font-bold text-primary hover:text-primary/80  text-start",
+                          className
+                        )}
+                      >
+                        {item.name}
+                      </button>
+                    ))}
                   </div>
                 </div>
                 <div className="pt-4 border-t border-gray-200">
                   <div className="space-y-3">
-                    <div className="text-sm">
-                      Режим работы: Пн-Вс 10:00 - 20:00
+                    <div className="text-sm text-gray-500 font-bold">
+                      Режим работы:
+                      <br /> Пн-Пт: 9:00–20:00, Сб-Вс: 10:00–18:00
                     </div>
-                    <div className="text-sm">
-                      <a href="tel:89999999999">+7 999 999 99 99</a>
+                    <div className="text-sm text-gray-500">
+                      <a href="tel:+79271881532">+7 (927) 188-15-32</a>
                     </div>
-                    <div className="text-sm">
-                      <a href="tel:89999999999">info@technoprogress.ru</a>
+                    <div className="text-sm text-gray-500">
+                      <a href="mailto:info@mordovklimat.ru">
+                        info@mordovklimat.ru
+                      </a>
                     </div>
                   </div>
                 </div>

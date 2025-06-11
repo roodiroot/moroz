@@ -5,7 +5,7 @@ const LogoFooter = () => {
   return (
     <Link href="/" className="-m-1.5 p-1.5 flex">
       <span className="sr-only">Your Company</span>
-      <Icons.logoNoColor />
+      <Icons.logo />
     </Link>
   );
 };

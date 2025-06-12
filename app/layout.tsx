@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "МордовКлимат",
     images: [
       {
-        url: "/images/features.jpg", // Ставь дефолтную картинку, если у товара нет изображения
+        url: "/images/graf.jpg", // Ставь дефолтную картинку, если у товара нет изображения
         width: 1200,
         height: 630,
         alt: "MordovKlimat-art",

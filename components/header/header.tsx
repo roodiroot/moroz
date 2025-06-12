@@ -15,7 +15,7 @@ const Header = () => {
         <div className="flex">
           <div className="md:hidden">
             <Button asChild className="rounded-full px-7 py-4 font-bold">
-              <a href="tel:89999999999">+7 999 999 99 99</a>
+              <a href="tel:+79271881532">+7 (927) 188-15-32</a>
             </Button>
           </div>
           <div className="hidden md:flex">

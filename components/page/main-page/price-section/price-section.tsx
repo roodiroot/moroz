@@ -49,7 +49,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({ prices }) => {
       <div className="mt-10 px-6 lg:px-8">
         <div className=" sm:px-0 sm:max-w-7xl sm:mx-auto">
           <Button asChild className="rounded-full px-7 py-4 font-bold">
-            <a href="tel:89999999999">+7 999 999 99 99</a>
+            <a href="tel:+79271881532">+7 (927) 188-15-32</a>
           </Button>
         </div>
       </div>

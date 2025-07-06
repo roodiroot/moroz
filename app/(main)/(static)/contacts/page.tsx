@@ -3,9 +3,10 @@ import MarkdownContent from "@/components/general/markdown-content";
 import HeroForm from "@/components/general/forms/hero-form";
 
 export const metadata: Metadata = {
-  title: "Контакты Brizet — Установка и Обслуживание Кондиционеров в Саранске",
+  title:
+    "Контакты МордовКлимат — Установка и Обслуживание Кондиционеров в Саранске",
   description:
-    "Свяжитесь с Brizet: телефон, адрес, карта проезда и мессенджеры. Работаем по Саранску и области. Кондиционеры под ключ — от подбора до монтажа и сервиса.",
+    "Свяжитесь с МордовКлимат: телефон, адрес, карта проезда и мессенджеры. Работаем по Саранску и области. Кондиционеры под ключ — от подбора до монтажа и сервиса.",
   icons: "./favicon_io/android-chrome-192x192.png",
 };
 

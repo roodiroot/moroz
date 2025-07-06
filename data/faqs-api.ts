@@ -10,6 +10,7 @@ export const getAllFAQ = async (): Promise<FAQResponse> => {
     const response = await fetch(url, {
       method: "GET",
       signal: controller.signal,
+      cache: "no-cache",
     });
 
     clearTimeout(timeout);

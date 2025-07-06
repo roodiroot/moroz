@@ -12,7 +12,8 @@ import { getAllServicePrice } from "@/data/service-price-api";
 
 export default async function Home() {
   const params = new URLSearchParams({
-    populate: "*",
+    "populate[0]": "images",
+    "populate[1]": "brand",
     sort: "createdAt:desc",
     pagination: JSON.stringify({ page: 1, pageSize: 100 }),
   });
@@ -23,6 +24,8 @@ export default async function Home() {
   const prices = await getAllServicePrice(paramsPrice.toString());
   const products = await getAllProducts(params.toString());
   const faqs = await getAllFAQ();
+
+  console.log(products.data);
 
   return (
     <div>

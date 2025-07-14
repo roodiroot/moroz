@@ -3,6 +3,7 @@ import YAMetrika from "@/components/general/metrics/ya-metrika";
 
 import "./globals.css";
 import { Lato } from "next/font/google";
+import { Suspense } from "react";
 
 const geistSans = Lato({
   subsets: ["latin"],
@@ -61,7 +62,9 @@ export default function RootLayout({
         </noscript>
       </head>
       <body className={`${geistSans.variable} antialiased bg-[#F3F4F6]`}>
-        <YAMetrika />
+        <Suspense>
+          <YAMetrika />
+        </Suspense>
         {children}
       </body>
     </html>

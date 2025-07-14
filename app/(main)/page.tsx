@@ -25,8 +25,6 @@ export default async function Home() {
   const products = await getAllProducts(params.toString());
   const faqs = await getAllFAQ();
 
-  console.log(products.data);
-
   return (
     <div>
       <HeroSection />

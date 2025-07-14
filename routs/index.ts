@@ -1,6 +1,7 @@
 export const menu = {
   main: [
     { name: "Главная", href: "/" },
+    { name: "Каталог", href: "/catalog" },
     { name: "О нас", href: "/about" },
     { name: "Контакты", href: "/contacts" },
   ],

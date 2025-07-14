@@ -70,9 +70,25 @@ export type ConditionerItem = {
     name: string;
     slug: string;
   };
-  //   createdAt?: string;
-  //   updatedAt?: string;
-  //   publishedAt?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  publishedAt?: string;
+  description?: string;
+  description_short?: string;
+  cooling_power?: string;
+  heating_power?: string;
+  btu_capacity?: string;
+  refrigerant_type?: string;
+  operation_modes?: string;
+  min_noise_level?: string;
+  series?: string;
+  max_line_length?: string;
+  caracteristic?: CharacteristicItem[];
+};
+
+export type CharacteristicItem = {
+  key: string;
+  value: string;
 };
 
 // Товары ответ с API

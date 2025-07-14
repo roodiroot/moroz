@@ -2,6 +2,7 @@ import OpenFeedbackButton from "@/components/general/open-feedback-button";
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ProductItemProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -57,11 +58,11 @@ const ProductItem: React.FC<ProductItemProps> = ({
         <div className="bg-[#ABABAB]/10 absolute inset-0"></div>
       </div>
       <div className="mt-4 flex-1 flex flex-col justify-between">
-        <OpenFeedbackButton>
+        <Link href={`/catalog/${slug}`}>
           <h3 className="font-bold text-sm text-balance sm:text-base cursor-pointer">
             {brand} {name}
           </h3>
-        </OpenFeedbackButton>
+        </Link>
         <div className=" items-end">
           <div className="mt-3 space-y-1 text-balance">
             <div className="flex justify-between gap-4">
@@ -83,9 +84,9 @@ const ProductItem: React.FC<ProductItemProps> = ({
             <div className="text-lg font-bold text-primary">
               {new Intl.NumberFormat("ru").format(Number(price))} руб.
             </div>
-            <OpenFeedbackButton>
+            <Link href={`/catalog/${slug}`}>
               <Button className="sm:block hidden">Подробнее</Button>
-            </OpenFeedbackButton>
+            </Link>
           </div>
         </div>
       </div>

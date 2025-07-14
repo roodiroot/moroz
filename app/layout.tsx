@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import YAMetrika from "@/components/general/metrics/ya-metrika";
+
 import "./globals.css";
+import { Lato } from "next/font/google";
 
 const geistSans = Lato({
   subsets: ["latin"],
@@ -43,7 +45,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
+      <head>
+        {/* Мета-теги, стили, favicon и т.д. */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* noscript для пользователей без JS */}
+        <noscript>
+          <div>
+            <img
+              src="https://mc.yandex.ru/watch/94961323"
+              style={{ position: "absolute", left: "-9999px" }}
+              alt=""
+            />
+          </div>
+        </noscript>
+      </head>
       <body className={`${geistSans.variable} antialiased bg-[#F3F4F6]`}>
+        <YAMetrika />
         {children}
       </body>
     </html>

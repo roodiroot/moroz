@@ -4,6 +4,7 @@ import LogoHeader from "../general/logo";
 import Link from "next/link";
 import Burger from "./mobil-menu/burger";
 import { menu } from "@/routs";
+import PhoneAnchor from "../general/metrics/phone-component";
 
 const Header = () => {
   return (
@@ -15,7 +16,7 @@ const Header = () => {
         <div className="flex">
           <div className="md:hidden">
             <Button asChild className="rounded-full px-7 py-4 font-bold">
-              <a href="tel:+79271881532">+7 (927) 188-15-32</a>
+              <PhoneAnchor />
             </Button>
           </div>
           <div className="hidden md:flex">
@@ -41,7 +42,7 @@ const Header = () => {
             asChild
             className="rounded-full px-7 py-4 font-bold text-xl h-[56px]"
           >
-            <a href="tel:+79271881532">+7 (927) 188-15-32</a>
+            <PhoneAnchor />
           </Button>
         </div>
       </nav>

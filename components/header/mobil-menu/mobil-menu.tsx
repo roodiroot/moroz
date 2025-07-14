@@ -9,6 +9,7 @@ import { useDisableBodyScroll } from "@/hooks/use-disable-body-scroll";
 
 import useMobilMenu from "@/hooks/use-mobil-menu";
 import { menu } from "@/routs";
+import PhoneAnchor from "@/components/general/metrics/phone-component";
 
 interface MenuMobilProps extends React.HtmlHTMLAttributes<HTMLElement> {}
 
@@ -83,7 +84,7 @@ const MenuMobil: React.FC<MenuMobilProps> = ({ className }) => {
                       <br /> Пн-Пт: 9:00–20:00, Сб-Вс: 10:00–18:00
                     </div>
                     <div className="text-sm text-gray-500">
-                      <a href="tel:+79271881532">+7 (927) 188-15-32</a>
+                      <PhoneAnchor />
                     </div>
                     <div className="text-sm text-gray-500">
                       <a href="mailto:info@mordovklimat.ru">

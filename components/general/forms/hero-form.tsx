@@ -37,6 +37,8 @@ const HeroForm = () => {
     if (res.succsess) {
       form.reset();
       toast.success("Заявка успешно отправлена");
+      //@ts-ignore
+      ym(94961323, "reachGoal", "form_submit_main");
     } else {
       toast.error("Ошибка отправки формы, попробуйте позже");
     }

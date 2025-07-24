@@ -15,23 +15,38 @@ const PortfolioSection = () => {
           {/* Элемент 1 длинный */}
           <div className="relative lg:row-span-2">
             <div className="absolute inset-0 z-10">
-              <div className="px-8 pt-8 h-full pb-3 flex flex-col sm:px-10 sm:pt-10 sm:pb-0">
+              {/* <div className="px-8 pt-8 h-full pb-3 flex flex-col sm:px-10 sm:pt-10 sm:pb-0">
                 <div className="flex-1 text-white font-bold text-xl text-shadow-md">
                   ДО
                 </div>
                 <div className="flex-1 text-white font-bold text-xl text-shadow-md">
                   ПОСЛЕ
                 </div>
+              </div> */}
+              <div className="px-8 pt-8 sm:px-10 sm:pt-10 font-bold text-white text-xl text-shadow-md">
+                Чистка и обслуживание кондиционера
               </div>
             </div>
-            <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
-              <Image
+            <div className="relative bg-red-500 flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
+              {/* <Image
                 src="/images/before-after-vertical.jpg"
                 alt="hero-bg"
                 width={563}
                 height={837}
                 className="size-full object-cover object-top"
-              />
+              /> */}
+              <video
+                // controls
+                width="600"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="size-full object-cover object-top"
+              >
+                <source src="/videos/video_1.mp4" type="video/mp4" />
+                Ваш браузер не поддерживает тег video.
+              </video>
             </div>
           </div>
 

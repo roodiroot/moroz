@@ -13,7 +13,7 @@ const CatalogPage = async () => {
   const params = new URLSearchParams({
     "populate[0]": "images",
     "populate[1]": "brand",
-    sort: "createdAt:desc",
+    sort: "updatedAt:desc",
     pagination: JSON.stringify({ page: 1, pageSize: 100 }),
   });
   const products = await getAllProducts(params.toString());

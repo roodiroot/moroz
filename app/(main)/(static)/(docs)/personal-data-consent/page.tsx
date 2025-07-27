@@ -22,7 +22,7 @@ const PersonalDataConsentPage = () => {
   return (
     <div className="pt-[68px] md:pt-[88px] ">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-16">
-        <MarkdownContent content={content} />
+        {/* <MarkdownContent content={content} /> */}
       </div>
     </div>
   );

@@ -1,8 +1,14 @@
 import { ServiceResponse } from "./types-api";
 
+type ServiceResponseData<T = ServiceResponse> = {
+  success: boolean;
+  data?: T;
+  error?: string;
+};
+
 export const getAllServicePrice = async (
   param?: string
-): Promise<ServiceResponse> => {
+): Promise<ServiceResponseData> => {
   const url = `${process.env.NEXT_PUBLIC_URL}/api/prices?${param || ""}`;
 
   try {
@@ -18,13 +24,19 @@ export const getAllServicePrice = async (
     clearTimeout(timeout);
 
     if (!response.ok) {
-      throw new Error(`Ошибка ${response.status}: ${response.statusText}`);
+      return {
+        success: false,
+        error: `Ошибка ${response.status}: ${response.statusText}`,
+      };
     }
 
     const data = await response.json();
-    return data;
+    return { data: data, success: true };
   } catch (error) {
     console.error("Ошибка при получении стоимости услуг:", error);
-    throw error;
+    return {
+      success: false,
+      error: JSON.stringify(error) || "Неизвестная ошибка",
+    };
   }
 };

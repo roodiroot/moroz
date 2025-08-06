@@ -11,6 +11,7 @@ interface ProductItemProps extends React.HTMLAttributes<HTMLDivElement> {
   compressor?: string;
   wifi?: string;
   price?: string;
+  old_price?: string;
   image?: string;
   brand?: string;
 }
@@ -22,6 +23,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
   compressor,
   wifi,
   price,
+  old_price,
   brand,
   image,
   className,
@@ -30,6 +32,10 @@ const ProductItem: React.FC<ProductItemProps> = ({
   const imageUrl = image
     ? process.env.NEXT_PUBLIC_URL + image
     : "/images/hero-bg.png";
+
+  const sale = old_price
+    ? ((Number(price) - Number(old_price)) * 100) / Number(price)
+    : 0;
 
   return (
     <div {...props} className="overflow-hidden h-full flex flex-col">
@@ -43,6 +49,13 @@ const ProductItem: React.FC<ProductItemProps> = ({
           {wifi === "да" && (
             <div className="text-xs font-bold text-sky-500 rounded-md px-2 py-1 border-2 border-sky-500 bg-sky-300 shadow">
               Wi-Fi
+            </div>
+          )}
+        </div>
+        <div className="p-2 absolute z-10 top-0 inset-x-0 flex gap-1 flex-row flex-wrap ">
+          {old_price && (
+            <div className="text-xs font-bold text-white rounded-md px-2 py-1 border-2 border-rose-500 bg-rose-500 shadow">
+              {sale.toFixed(0)}% скидка
             </div>
           )}
         </div>

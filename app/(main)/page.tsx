@@ -28,12 +28,12 @@ export default async function Home() {
   return (
     <div>
       <HeroSection />
-      <PriceSection prices={prices.data} />
-      <NewProductsSection products={products.data} />
+      <PriceSection prices={prices.data?.data} />
+      <NewProductsSection products={products.data?.data} />
       <FeaturesSection />
       <CTASection />
       <PortfolioSection />
-      <FAQSection faqs={faqs.data} />
+      <FAQSection faqs={faqs.data?.data} />
     </div>
   );
 }

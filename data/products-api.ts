@@ -1,8 +1,20 @@
 import { ConditionerItem, ConditionerResponse } from "./types-api";
 
+type ConditionerResponseData<T = ConditionerResponse> = {
+  success: boolean;
+  data?: T;
+  error?: string;
+};
+
+type ConditionerItemData<T = ConditionerItem> = {
+  success: boolean;
+  data?: T;
+  error?: string;
+};
+
 export const getAllProducts = async (
   param?: string
-): Promise<ConditionerResponse> => {
+): Promise<ConditionerResponseData> => {
   const url = `${process.env.NEXT_PUBLIC_URL}/api/products?${param || ""}`;
 
   try {
@@ -18,20 +30,27 @@ export const getAllProducts = async (
     clearTimeout(timeout);
 
     if (!response.ok) {
-      throw new Error(`Ошибка ${response.status}: ${response.statusText}`);
+      return {
+        success: false,
+        error: `Ошибка ${response.status}: ${response.statusText}`,
+      };
     }
 
     const data = await response.json();
-    return data;
+    return { data: data, success: true };
   } catch (error) {
     console.error("Ошибка при получении товаров:", error);
-    throw error;
+    return {
+      success: false,
+      error: JSON.stringify(error) || "Неизвестная ошибка",
+    };
   }
 };
+
 export const getProductBySlug = async (
   slug: string
-): Promise<ConditionerItem> => {
-  const url = `${process.env.NEXT_PUBLIC_URL}/api/product/${slug}`;
+): Promise<ConditionerItemData> => {
+  const url = `${process.env.NEXT_PUBLIC_URL}/api/products/${slug}`;
 
   try {
     const controller = new AbortController();
@@ -46,13 +65,19 @@ export const getProductBySlug = async (
     clearTimeout(timeout);
 
     if (!response.ok) {
-      throw new Error(`Ошибка ${response.status}: ${response.statusText}`);
+      return {
+        success: false,
+        error: `Ошибка ${response.status}: ${response.statusText}`,
+      };
     }
 
     const data = await response.json();
-    return data;
+    return { data: data, success: true };
   } catch (error) {
     console.error("Ошибка при получении товаров:", error);
-    throw error;
+    return {
+      success: false,
+      error: JSON.stringify(error) || "Неизвестная ошибка",
+    };
   }
 };

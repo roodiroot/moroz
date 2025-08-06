@@ -31,6 +31,7 @@ const NewProductsSection: React.FC<NewProductsSectionProps> = ({
               compressor={i.compressor}
               wifi={i.wifi}
               price={i.price}
+              old_price={i.old_price}
               image={i.images && i.images[0]?.url}
             />
           ))}

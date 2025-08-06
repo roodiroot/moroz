@@ -65,6 +65,7 @@ export type ConditionerItem = {
   compressor?: string;
   wifi?: string;
   price?: string;
+  old_price?: string;
   images?: ImageItem[]; // Массив изображений
   brand?: {
     name: string;

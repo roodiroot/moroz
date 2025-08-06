@@ -23,7 +23,7 @@ const CatalogPage = async () => {
         <h1 className="text-4xl font-bold">Каталог товаров</h1>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-20 md:pb-0 overflow-hidden">
           <div className="mt-9 md:mt-11 grid  gap-x-7 gap-y-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {products.data?.map((i, index) => (
+            {products.data?.data.map((i, index) => (
               <ProductItem
                 key={index}
                 name={i.name}

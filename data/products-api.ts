@@ -50,7 +50,7 @@ export const getAllProducts = async (
 export const getProductBySlug = async (
   slug: string
 ): Promise<ConditionerItemData> => {
-  const url = `${process.env.NEXT_PUBLIC_URL}/api/products/${slug}`;
+  const url = `${process.env.NEXT_PUBLIC_URL}/api/product/${slug}`;
 
   try {
     const controller = new AbortController();
@@ -63,6 +63,8 @@ export const getProductBySlug = async (
     });
 
     clearTimeout(timeout);
+
+    // console.log(response);
 
     if (!response.ok) {
       return {

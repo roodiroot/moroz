@@ -47,6 +47,8 @@ const ConditionerItemPage = async ({ params }: Props) => {
   const productslug = (await params).slug;
   const { data, success } = await getProductBySlug(productslug);
 
+  // console.log(data);
+
   if (!success || !data) {
     return (
       <div className="flex flex-col items-center justify-center h-screen">

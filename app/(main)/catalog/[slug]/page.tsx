@@ -3,9 +3,8 @@ import CharacteristicModule from "@/components/page/product-page/characteristic-
 import OfferModulle from "@/components/page/product-page/offer-modulle/offer-modulle";
 import SliderElement from "@/components/page/product-page/slider/slider-element";
 import SliderPageSkeleton from "@/components/page/product-page/slider/slider-page-skeleton";
-import { Button } from "@/components/ui/button";
 import { getProductBySlug } from "@/data/products-api";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 type Props = {
   params: Promise<{ slug: string }>;

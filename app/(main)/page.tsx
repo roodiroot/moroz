@@ -21,9 +21,9 @@ export default async function Home() {
     sort: "createdAt:asc",
   });
 
-  const prices = await getAllServicePrice(paramsPrice.toString());
-  const products = await getAllProducts(params.toString());
-  const faqs = await getAllFAQ();
+  const prices = (await getAllServicePrice(paramsPrice.toString())) || [];
+  const products = (await getAllProducts(params.toString())) || [];
+  const faqs = (await getAllFAQ()) || [];
 
   return (
     <div>

@@ -10,19 +10,14 @@ const IconLink: React.FC<{ index: number; link: SOCIALType }> = ({
 }) => {
   const translate = "-" + (index + 1) * 100 + "%";
 
-  const onSubmit = (type?: string) => {
-    if (type === "tg") {
-      //@ts-ignore
-      ym(94961323, "reachGoal", "click_tg");
-    } else if (type === "ws") {
-      //@ts-ignore
-      ym(94961323, "reachGoal", "click_wa");
-    }
+  const onSubmit = () => {
+    //@ts-ignore
+    window.ym(94961323, "reachGoal", "click_tg");
   };
 
   return (
     <motion.a
-      onClick={() => onSubmit(link.icon)}
+      onClick={() => onSubmit()}
       href={link.link}
       target="_blank"
       style={{ background: link.bg, top: translate }}

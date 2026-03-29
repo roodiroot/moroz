@@ -54,16 +54,16 @@ const PortfolioSection = () => {
           <div className="relative h-[332px] lg:h-auto max-lg:row-start-1">
             <div className="relative flex h-full flex-col overflow-hidden rounded-[12px] max-lg:rounded-t-[40px]">
               <div className="relative z-20 px-8 pt-8 sm:px-10 sm:pt-10 flex">
-                <div className="flex-1 text-white font-bold text-xl text-shadow-md">
+                <div className="flex-1 text-gray-500 font-bold text-xl">
                   ДО
                 </div>
-                <div className="flex-1 text-white font-bold text-xl text-shadow-md pl-8">
+                <div className="flex-1 text-gray-500 font-bold text-xl text-shadow-md pl-8">
                   ПОСЛЕ
                 </div>
               </div>
               <div className="absolute inset-px rounded-lg shadow-sm">
                 <Image
-                  src="/images/before-after-gorisont.jpg"
+                  src="/images/short_1.jpg"
                   alt="hero-bg"
                   width={775}
                   height={434}
@@ -77,16 +77,16 @@ const PortfolioSection = () => {
           <div className="relative h-[332px] lg:h-auto max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
             <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
               <div className="relative z-20 px-8 pt-8 sm:px-10 sm:pt-10 flex">
-                <div className="flex-1 text-white font-bold text-xl text-shadow-md">
+                <div className="flex-1 text-gray-500 font-bold text-xl text-shadow-md">
                   ДО
                 </div>
-                <div className="flex-1 text-white font-bold text-xl text-shadow-md pl-8">
+                <div className="flex-1 text-gray-500 font-bold text-xl text-shadow-md pl-8">
                   ПОСЛЕ
                 </div>
               </div>
               <div className="absolute inset-px rounded-lg shadow-sm">
                 <Image
-                  src="/images/before-after-gorisont.jpg"
+                  src="/images/short_2.jpg"
                   alt="hero-bg"
                   width={775}
                   height={434}
@@ -100,17 +100,17 @@ const PortfolioSection = () => {
           <div className="relative lg:row-span-2">
             <div className="absolute inset-0 z-10">
               <div className="px-8 pt-8 h-full pb-3 flex flex-col sm:px-10 sm:pt-10 sm:pb-0">
-                <div className="flex-1 text-white font-bold text-xl text-shadow-md">
+                <div className="flex-1 text-gray-500 font-bold text-xl text-shadow-md">
                   ДО
                 </div>
-                <div className="flex-1 text-white font-bold text-xl text-shadow-md">
+                <div className="flex-1 text-gray-500 font-bold text-xl text-shadow-md">
                   ПОСЛЕ
                 </div>
               </div>
             </div>
             <div className="relative flex h-full flex-col overflow-hidden rounded-t-[12px] rounded-b-[40px] lg:rounded-l-[12px] lg:rounded-r-[40px]">
               <Image
-                src="/images/before-after-vertical.jpg"
+                src="/images/long_1.jpg"
                 alt="hero-bg"
                 width={563}
                 height={837}
